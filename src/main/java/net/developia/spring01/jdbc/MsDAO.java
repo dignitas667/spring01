@@ -32,7 +32,7 @@ public class MsDAO {
 			try(ResultSet rs = pstmt.executeQuery()) {
 				while(rs.next()) {
 					DeptDTO dto = new DeptDTO();
-					dto.setDeptno(rs.getInt("deptno"));
+					dto.setDeptno(rs.getInt(1));
 					dto.setDname(rs.getString("dname"));
 					dto.setLoc(rs.getString("loc"));
 					list.add(dto);
