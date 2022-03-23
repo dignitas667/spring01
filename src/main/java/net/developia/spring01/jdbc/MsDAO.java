@@ -26,13 +26,14 @@ public class MsDAO {
 		sql.append("FROM ");
 		sql.append("    dept ");
 		
+		Class.forName("net.sf.log4jdbc.DriverSpy");
 		try (Connection conn = DriverManager.getConnection(
-			"jdbc:oracle:thin:@localhost:1521/xepdb1","ace","me");
+			"jdbc:log4jdbc:oracle:thin:@localhost:1521/xepdb1","ace","me");
 			PreparedStatement pstmt = conn.prepareStatement(sql.toString())){
 			try(ResultSet rs = pstmt.executeQuery()) {
 				while(rs.next()) {
 					DeptDTO dto = new DeptDTO();
-					dto.setDeptno(rs.getInt(1));
+					dto.setDeptno(rs.getInt("deptno"));
 					dto.setDname(rs.getString("dname"));
 					dto.setLoc(rs.getString("loc"));
 					list.add(dto);
@@ -40,6 +41,29 @@ public class MsDAO {
 			}
 		}
 		return list;
+	}
+
+	public void insertDept(DeptDTO dto) throws Exception {
+		StringBuffer sql = new StringBuffer();
+		sql.append("INSERT INTO dept ( ");
+		sql.append("    deptno, ");
+		sql.append("    dname, ");
+		sql.append("    loc ");
+		sql.append(") VALUES ( ");
+		sql.append("    ?, ");
+		sql.append("    ?, ");
+		sql.append("    ? ");
+		sql.append(") ");
+		
+		Class.forName("net.sf.log4jdbc.DriverSpy");
+		try(Connection conn = DriverManager.getConnection(
+			"jdbc:log4jdbc:oracle:thin:@localhost:1521/xepdb1","ace","me");
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString())){
+			pstmt.setInt(1, dto.getDeptno());
+			pstmt.setString(2, dto.getDname());
+			pstmt.setString(3, dto.getLoc());
+			pstmt.executeUpdate();
+		}
 	}
 
 }

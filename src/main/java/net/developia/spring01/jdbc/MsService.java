@@ -26,7 +26,16 @@ public class MsService {
 			}
 			return list;
 		} catch (Exception e) {
-			log.info("error : " + e);
+			e.printStackTrace();
+			throw e;
+		}
+	}
+
+	public void insertDept(DeptDTO dto) throws Exception {
+		try {
+			msDAO.insertDept(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
 			throw e;
 		}
 	}

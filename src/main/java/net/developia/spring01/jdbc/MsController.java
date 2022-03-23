@@ -25,4 +25,18 @@ public class MsController {
 			System.out.println("예외가 발생하였습니다.");
 		}
 	}
+
+	public void insertDept() {
+		DeptDTO dto = new DeptDTO();
+		dto.setDeptno(50);
+		dto.setDname("dev");
+		dto.setLoc("seoul");
+		
+		try {
+			msService.insertDept(dto);
+			System.out.println("입력되었습니다.");
+		} catch (Exception e) {
+			System.out.println("입력 에러");
+		}
+	}
 }
