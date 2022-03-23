@@ -12,6 +12,7 @@ public class JdbcTest {
 				JdbcTest.class, "beaninit.xml");
 		MsController ms = (MsController) context.getBean("msController");
 		//ms.listDept();
-		ms.insertDept();
+		//ms.insertDept();
+		ms.deleteDept(50);
 	}
 }

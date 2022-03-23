@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,6 +64,16 @@ public class MsDAO {
 		
 		JdbcTemplate jdbcTemplate = JdbcTemplate.getInstance();
 		jdbcTemplate.update(sql.toString(), args);
+	}
+
+	public int deleteDept(int deptno) throws SQLException {
+		StringBuffer sql = new StringBuffer();
+		sql.append("delete dept ");
+		sql.append("where  deptno=? ");
+		
+		Object[] args = {deptno};
+		JdbcTemplate jdbcTemplate = JdbcTemplate.getInstance();
+		return jdbcTemplate.update(sql.toString(), args);
 	}
 
 }

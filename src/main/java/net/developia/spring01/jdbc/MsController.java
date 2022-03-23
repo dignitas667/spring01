@@ -39,4 +39,13 @@ public class MsController {
 			System.out.println("입력 에러");
 		}
 	}
+
+	public void deleteDept(int deptno) {
+		try {
+			msService.deleteDept(deptno);
+			System.out.println("삭제 성공");
+		} catch (Exception e) {
+			System.out.println("삭제 에러");
+		}
+	}
 }

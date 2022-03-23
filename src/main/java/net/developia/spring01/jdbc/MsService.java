@@ -39,4 +39,15 @@ public class MsService {
 			throw e;
 		}
 	}
+
+	public void deleteDept(int deptno) throws Exception {
+		try {
+			if (msDAO.deleteDept(deptno) != 1) {
+				throw new RuntimeException("삭제된 부서가 없습니다.");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
 }
