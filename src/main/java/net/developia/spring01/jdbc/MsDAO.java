@@ -55,15 +55,14 @@ public class MsDAO {
 		sql.append("    ? ");
 		sql.append(") ");
 		
-		Class.forName("net.sf.log4jdbc.DriverSpy");
-		try(Connection conn = DriverManager.getConnection(
-			"jdbc:log4jdbc:oracle:thin:@localhost:1521/xepdb1","ace","me");
-			PreparedStatement pstmt = conn.prepareStatement(sql.toString())){
-			pstmt.setInt(1, dto.getDeptno());
-			pstmt.setString(2, dto.getDname());
-			pstmt.setString(3, dto.getLoc());
-			pstmt.executeUpdate();
-		}
+		Object[] args = {
+			dto.getDeptno(),
+			dto.getDname(),
+			dto.getLoc()
+		};
+		
+		JdbcTemplate jdbcTemplate = JdbcTemplate.getInstance();
+		jdbcTemplate.update(sql.toString(), args);
 	}
 
 }

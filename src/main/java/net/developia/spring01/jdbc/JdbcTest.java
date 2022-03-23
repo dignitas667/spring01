@@ -11,7 +11,7 @@ public class JdbcTest {
 		GenericApplicationContext context = new GenericXmlApplicationContext(
 				JdbcTest.class, "beaninit.xml");
 		MsController ms = (MsController) context.getBean("msController");
-		ms.listDept();
-		//ms.insertDept();
+		//ms.listDept();
+		ms.insertDept();
 	}
 }

@@ -28,9 +28,9 @@ public class MsController {
 
 	public void insertDept() {
 		DeptDTO dto = new DeptDTO();
-		dto.setDeptno(50);
-		dto.setDname("dev");
-		dto.setLoc("seoul");
+		dto.setDeptno(60);
+		dto.setDname("dev2");
+		dto.setLoc("newyork");
 		
 		try {
 			msService.insertDept(dto);
