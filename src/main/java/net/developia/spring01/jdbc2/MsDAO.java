@@ -97,4 +97,11 @@ public class MsDAO {
 		return jdbcTemplate.update(sql.toString(), args);
 	}
 
+	public int countDept() {
+		StringBuffer sql = new StringBuffer();
+		sql.append("select count(deptno) ");
+		sql.append("from   dept ");
+		return jdbcTemplate.queryForObject(sql.toString(), Integer.class);
+	}
+
 }

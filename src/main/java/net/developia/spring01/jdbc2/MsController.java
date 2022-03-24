@@ -57,4 +57,13 @@ public class MsController {
 			System.out.println("수정 에러");
 		}
 	}
+
+	public void countDept() {
+		try {
+			int count = msService.countDept();
+			System.out.println("부서 개수 : " + count);
+		} catch (Exception e) {
+			System.out.println("부서 개수를 가져오지 못함.");
+		}
+	}
 }

@@ -61,4 +61,13 @@ public class MsService {
 			throw e;
 		}
 	}
+
+	public int countDept() {
+		try {
+			return msDAO.countDept();
+		} catch (Exception e) {
+			log.info(e.toString());
+			throw e;
+		}
+	}
 }
