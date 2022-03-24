@@ -1,4 +1,4 @@
-package net.developia.spring01.jdbc;
+package net.developia.spring01.jdbc2;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,11 +8,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class MsDAO {
-	JdbcTemplate jdbcTemplate = JdbcTemplate.getInstance();
+	@Autowired
+	JdbcTemplate jdbcTemplate;
 
 	public String testStr() {
 		return "msDAO test~";

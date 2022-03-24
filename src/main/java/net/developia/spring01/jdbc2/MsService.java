@@ -1,4 +1,4 @@
-package net.developia.spring01.jdbc;
+package net.developia.spring01.jdbc2;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package net.developia.spring01.jdbc;
+package net.developia.spring01.jdbc2;
 
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
@@ -11,9 +11,9 @@ public class JdbcTest {
 		GenericApplicationContext context = new GenericXmlApplicationContext(
 				JdbcTest.class, "beaninit.xml");
 		MsController ms = (MsController) context.getBean("msController");
-		//ms.insertDept();
+		ms.insertDept();
 		//ms.deleteDept();
-		ms.updateDept();
+		//ms.updateDept();
 		ms.listDept();
 		
 	}

@@ -1,4 +1,4 @@
-package net.developia.spring01.jdbc;
+package net.developia.spring01.jdbc2;
 
 import java.util.List;
 
@@ -28,9 +28,9 @@ public class MsController {
 
 	public void insertDept() {
 		DeptDTO dto = new DeptDTO();
-		dto.setDeptno(60);
-		dto.setDname("dev2");
-		dto.setLoc("newyork");
+		dto.setDeptno(70);
+		dto.setDname("planning");
+		dto.setLoc("busan");
 		
 		try {
 			msService.insertDept(dto);
