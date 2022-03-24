@@ -22,12 +22,12 @@ public class MsController {
 		}
 	}
 
-	/*
+	
 	public void insertDept() {
 		DeptDTO dto = new DeptDTO();
-		dto.setDeptno(70);
-		dto.setDname("planning");
-		dto.setLoc("busan");
+		dto.setDeptno(80);
+		dto.setDname("ai");
+		dto.setLoc("kwangju");
 		
 		try {
 			msService.insertDept(dto);
@@ -37,15 +37,17 @@ public class MsController {
 		}
 	}
 
+	
 	public void deleteDept() {
 		try {
-			msService.deleteDept(60);
+			msService.deleteDept(80);
 			System.out.println("삭제 성공");
 		} catch (Exception e) {
 			System.out.println("삭제 에러");
 		}
 	}
 
+	/*
 	public void updateDept() {
 		try {
 			msService.updateDept(new DeptDTO(60, "software", "boston"));
@@ -54,7 +56,7 @@ public class MsController {
 			System.out.println("수정 에러");
 		}
 	}
-
+	*/
 	public void countDept() {
 		try {
 			int count = msService.countDept();
@@ -64,6 +66,7 @@ public class MsController {
 		}
 	}
 
+	/*
 	public void listEmployees() {
 		try {
 			List<EmployeesDTO> list = msService.listEmployees();

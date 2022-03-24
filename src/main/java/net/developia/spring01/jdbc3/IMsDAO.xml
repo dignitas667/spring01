@@ -14,4 +14,25 @@
 		    deptno BETWEEN #{begin} AND #{end} 
 		ORDER BY deptno ASC 
 	</select>
+		
+	<insert id="insertDept" parameterType="DeptDTO" >
+		INSERT INTO dept ( 
+		    deptno, 
+		    dname, 
+		    loc 
+		) VALUES ( 
+		    #{deptno}, 
+		    #{dname}, 
+		    #{loc}
+		) 
+	</insert>
+	
+	<delete id="deleteDept" parameterType="Integer">
+		delete dept
+		where  deptno=#{deptno}
+	</delete>
+	
+	<select id="countDept" resultType="int">
+	select count(*) from dept
+	</select>
 </mapper>

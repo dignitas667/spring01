@@ -17,7 +17,7 @@ public class MsService {
 
 	public List<DeptDTO> listDept() throws Exception {
 		try {
-			List<DeptDTO> list = msDAO.listDept(10, 40);
+			List<DeptDTO> list = msDAO.listDept(1, 1000);
 			if (list == null) {
 				throw new RuntimeException("데이터가 없습니다.");
 			}
@@ -28,7 +28,7 @@ public class MsService {
 		}
 	}
 
-/*	public void insertDept(DeptDTO dto) throws Exception {
+	public void insertDept(DeptDTO dto) throws Exception {
 		try {
 			msDAO.insertDept(dto);
 		} catch (Exception e) {
@@ -47,7 +47,16 @@ public class MsService {
 			throw e;
 		}
 	}
+	public int countDept() throws Exception {
+		try {
+			return msDAO.countDept();
+		} catch (Exception e) {
+			log.info(e.toString());
+			throw e;
+		}
+	}
 
+	/*
 	public void updateDept(DeptDTO deptDTO) throws Exception {
 		try {
 			if (msDAO.updateDept(deptDTO) != 1) {
@@ -59,14 +68,6 @@ public class MsService {
 		}
 	}
 
-	public int countDept() {
-		try {
-			return msDAO.countDept();
-		} catch (Exception e) {
-			log.info(e.toString());
-			throw e;
-		}
-	}
 
 	public List<EmployeesDTO> listEmployees() {
 		try {
