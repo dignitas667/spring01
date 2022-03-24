@@ -1,5 +1,6 @@
 package net.developia.spring01.jdbc3;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 public class MsService {
 	
 	@Autowired
-	private MsDAO msDAO;
-
-	public String testStr() {
-		return msDAO.testStr();
-	}
+	private IMsDAO msDAO;
 
 	public List<DeptDTO> listDept() throws Exception {
 		try {
@@ -31,7 +28,7 @@ public class MsService {
 		}
 	}
 
-	public void insertDept(DeptDTO dto) throws Exception {
+/*	public void insertDept(DeptDTO dto) throws Exception {
 		try {
 			msDAO.insertDept(dto);
 		} catch (Exception e) {
@@ -78,5 +75,5 @@ public class MsService {
 			log.info(e.toString());
 			throw e;
 		}
-	}
+	}*/
 }

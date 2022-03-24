@@ -14,8 +14,8 @@ public class JdbcTest {
 		//ms.insertDept();
 		//ms.deleteDept();
 		//ms.updateDept();
-		//ms.listDept();
+		ms.listDept();
 		//ms.countDept();
-		ms.listEmployees();
+		//ms.listEmployees();
 	}
 }

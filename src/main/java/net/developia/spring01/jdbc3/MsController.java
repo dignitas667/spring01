@@ -11,10 +11,6 @@ public class MsController {
 	@Autowired
 	private MsService msService;
 	
-	public String testStr() {
-		return msService.testStr();
-	}
-
 	public void listDept() {
 		try {
 			List<DeptDTO> list = msService.listDept();
@@ -26,6 +22,7 @@ public class MsController {
 		}
 	}
 
+	/*
 	public void insertDept() {
 		DeptDTO dto = new DeptDTO();
 		dto.setDeptno(70);
@@ -76,5 +73,5 @@ public class MsController {
 		} catch (Exception e) {
 			System.out.println("사원 정보 출력 에러");
 		}
-	}
+	}*/
 }

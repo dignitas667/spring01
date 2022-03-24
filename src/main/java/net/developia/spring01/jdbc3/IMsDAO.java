@@ -12,11 +12,9 @@ import org.springframework.stereotype.Repository;
 public interface IMsDAO {
 	public List<DeptDTO> listDept() throws Exception;
 
-	public int insertDept(DeptDTO dto) throws Exception;
-	public int deleteDept(int deptno) throws SQLException;
-
-	public int updateDept(DeptDTO deptDTO) throws SQLException;
-	public int countDept() throws SQLException;
-
-	public List listEmployees() throws SQLException;
+//	public int insertDept(DeptDTO dto) throws Exception;
+//	public int deleteDept(int deptno) throws SQLException;
+//	public int updateDept(DeptDTO deptDTO) throws SQLException;
+//	public int countDept() throws SQLException;
+//	public List listEmployees() throws SQLException;
 }
