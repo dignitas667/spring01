@@ -23,7 +23,6 @@ public class MsDAO {
 	}
 
 	public List<DeptDTO> listDept() throws Exception {
-		List<DeptDTO> list = new ArrayList<>();
 		StringBuffer sql = new StringBuffer();
 		sql.append("SELECT ");
 		sql.append("    deptno, ");
@@ -31,7 +30,14 @@ public class MsDAO {
 		sql.append("    loc ");
 		sql.append("FROM ");
 		sql.append("    dept ");
+		sql.append("WHERE ");
+		sql.append("    deptno BETWEEN ? AND ? ");
 		sql.append("ORDER BY deptno ASC ");
+		
+		Object[] args = {
+			10,
+			40
+		};
 		
 		RowMapper rowMapper = new RowMapper() {
 			@Override
@@ -43,7 +49,7 @@ public class MsDAO {
 				return dto;
 			}
 		};
-		return jdbcTemplate.query(sql.toString(), rowMapper);
+		return jdbcTemplate.query(sql.toString(), args, rowMapper);
 	}
 
 	public int insertDept(DeptDTO dto) throws Exception {
