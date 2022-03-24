@@ -36,8 +36,14 @@
 		<property name="maximumPoolSize" value="20" />
 	</bean>
 		
-	<bean id="jdbcTemplate"
-	class="org.springframework.jdbc.core.JdbcTemplate">
+	<bean id="msSqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
+		<property name="typeAliasesPackage" value="net.developia.spring01.jdbc3" />
 	</bean>
+	
+	<bean id="msDAO" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="msSqlSession" />
+		<property name="mapperInterface" value="net.developia.spring01.jdbc3.IMsDAO" />
+	</bean>
+	
 </beans>
