@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -30,22 +31,19 @@ public class MsDAO {
 		sql.append("    loc ");
 		sql.append("FROM ");
 		sql.append("    dept ");
+		sql.append("ORDER BY deptno ASC ");
 		
-		Class.forName("net.sf.log4jdbc.DriverSpy");
-		try (Connection conn = DriverManager.getConnection(
-			"jdbc:log4jdbc:oracle:thin:@localhost:1521/xepdb1","ace","me");
-			PreparedStatement pstmt = conn.prepareStatement(sql.toString())){
-			try(ResultSet rs = pstmt.executeQuery()) {
-				while(rs.next()) {
-					DeptDTO dto = new DeptDTO();
-					dto.setDeptno(rs.getInt("deptno"));
-					dto.setDname(rs.getString("dname"));
-					dto.setLoc(rs.getString("loc"));
-					list.add(dto);
-				}
+		RowMapper rowMapper = new RowMapper() {
+			@Override
+			public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+				DeptDTO dto = new DeptDTO();
+				dto.setDeptno(rs.getInt("deptno"));
+				dto.setDname(rs.getString("dname"));
+				dto.setLoc(rs.getString("loc"));
+				return dto;
 			}
-		}
-		return list;
+		};
+		return jdbcTemplate.query(sql.toString(), rowMapper);
 	}
 
 	public int insertDept(DeptDTO dto) throws Exception {
