@@ -17,7 +17,7 @@ public class MsService {
 
 	public List<DeptDTO> listDept() throws Exception {
 		try {
-			List<DeptDTO> list = msDAO.listDept();
+			List<DeptDTO> list = msDAO.listDept(10, 40);
 			if (list == null) {
 				throw new RuntimeException("데이터가 없습니다.");
 			}

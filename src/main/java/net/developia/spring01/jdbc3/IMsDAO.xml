@@ -3,7 +3,7 @@
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.developia.spring01.jdbc3.IMsDAO">
 
-	<select id="listDept" resultType="DeptDTO">
+	<select id="listDept" parameterType="int" resultType="DeptDTO">
 		SELECT
 		    deptno,
 		    dname,
@@ -11,7 +11,7 @@
 		FROM 
 		    dept 
 		WHERE 
-		    deptno BETWEEN 10 AND 40 
+		    deptno BETWEEN #{begin} AND #{end} 
 		ORDER BY deptno ASC 
 	</select>
 </mapper>
