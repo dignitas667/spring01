@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+      <Resource name="spring_jndi"
+		auth="Container"
+		driverClassName="net.sf.log4jdbc.DriverSpy"
+		type="javax.sql.DataSource"
+		url="jdbc:log4jdbc:oracle:thin:@localhost:1521/xepdb1"
+		username="ace"
+		password="me"
+		maxActive="10"
+		maxWait="-1"/>
+</Context>

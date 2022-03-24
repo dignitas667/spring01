@@ -1,4 +1,4 @@
-package net.developia.spring01.jdbc2;
+package net.developia.spring01.jdbc3;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

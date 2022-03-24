@@ -1,4 +1,4 @@
-package net.developia.spring01.jdbc2;
+package net.developia.spring01.jdbc3;
 
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
