@@ -33,6 +33,24 @@
 	</delete>
 	
 	<select id="countDept" resultType="int">
-	select count(*) from dept
+	<![CDATA[
+		select count(*) from dept
+	]]>
+	</select>
+	
+	<select id="listEmployees" parameterType="int" resultType="EmployeesDTO">
+	<![CDATA[
+		SELECT 
+		    e.employee_id, 
+		    e.last_name, 
+		    e.salary, 
+		    e.job_id, 
+		    e.department_id, 
+		    d.department_name 
+		FROM 
+		         employees e 
+		    INNER JOIN departments d ON e.department_id = d.department_id 
+		           AND d.department_id <= #{deptno} 
+	]]>
 	</select>
 </mapper>

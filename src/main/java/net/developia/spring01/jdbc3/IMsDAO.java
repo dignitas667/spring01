@@ -21,5 +21,6 @@ public interface IMsDAO {
 
 	//@Select("select count(*) as cnt from dept")
 	public int countDept() throws SQLException;
-//	public List listEmployees() throws SQLException;
+	
+	public List listEmployees(int deptno) throws SQLException;
 }

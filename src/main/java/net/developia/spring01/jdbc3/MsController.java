@@ -66,7 +66,6 @@ public class MsController {
 		}
 	}
 
-	/*
 	public void listEmployees() {
 		try {
 			List<EmployeesDTO> list = msService.listEmployees();
@@ -76,5 +75,5 @@ public class MsController {
 		} catch (Exception e) {
 			System.out.println("사원 정보 출력 에러");
 		}
-	}*/
+	}
 }

@@ -66,15 +66,15 @@ public class MsService {
 			e.printStackTrace();
 			throw e;
 		}
-	}
+	}*/
 
 
-	public List<EmployeesDTO> listEmployees() {
+	public List<EmployeesDTO> listEmployees() throws Exception {
 		try {
-			return msDAO.listEmployees();
+			return msDAO.listEmployees(60);
 		} catch (Exception e) {
 			log.info(e.toString());
 			throw e;
 		}
-	}*/
+	}
 }
