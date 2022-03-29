@@ -1,0 +1,14 @@
+dependency injection
+	xml
+		setter
+		constructor
+	annotation
+		setter
+		constructor
+	java class로 spring bean정의
+		setter
+		constructor
+	
+JDBC
+SpringJDBC - JdbcTemplate
+Mybatis
